@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新闻声 XinWenSheng · 中国新闻朗读</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <div>
+      <h1>新闻声 <span style="font-size:0.6em;font-weight:400;opacity:.7">XinWenSheng</span></h1>
+      <p>中国新闻朗读 — 粘贴新闻，立即用普通话朗读。</p>
+    </div>
+    <button id="themeToggle" class="btn ghost" type="button">深色模式</button>
+  </div>
+</header>
+<main class="layout">
+  <section class="panel">
+    <label class="label" for="textInput">新闻内容 <span>— 中文新闻</span></label>
+    <textarea id="textInput" rows="14" placeholder="在这里粘贴中文新闻...">今天上午，北京市召开新闻发布会，介绍了城市交通和环境治理的最新进展。相关负责人表示，今年将继续推进绿色出行，优化公共交通网络，让市民出行更加便捷。专家指出，随着各项政策的落实，城市空气质量有望进一步改善，市民生活质量也将不断提高。</textarea>
+    <div class="stats">
+      <span><b id="wordCount">0</b> 字</span>
+      <span><b id="charCount">0</b> 字符</span>
+      <span>预计 <b id="timeEst">0 分钟</b></span>
+      <span id="statusText">准备就绪</span>
+    </div>
+    <div class="samples">
+      <p class="small-title">新闻示例：</p>
+      <div id="sampleButtons" class="sample-row"></div>
+    </div>
+    <div id="highlightBox" class="highlight-box" hidden>
+      <p class="small-title">正在朗读：</p>
+      <p id="highlightText"></p>
+    </div>
+    <div class="file-row">
+      <label class="btn ghost file-label">打开 .txt 文件<input type="file" id="fileInput" accept=".txt" hidden></label>
+      <button id="copyBtn" class="btn ghost" type="button">复制文本</button>
+      <button id="clearBtn" class="btn ghost" type="button">清空</button>
+    </div>
+  </section>
+  <aside class="panel controls-panel">
+    <h2>朗读控制</h2>
+    <div class="auto-box">
+      <p class="auto-label">语音状态</p>
+      <p class="auto-value" id="activeVoiceName">中文语音已内置 — 在线普通话 (zh-CN)</p>
+      <p class="hint" id="voiceHint">语音已注入到代码里：朗读直接用在线普通话，不用安装中文语音，不依赖设备语音。</p>
+      <button id="checkVoiceBtn" class="btn ghost reader-try" type="button">测试注入语音</button>
+      <button id="beepBtn" class="btn ghost reader-try" type="button">🔊 先测试喇叭有没有声音</button>
+      <button id="diagBtn" class="btn ghost reader-try" type="button">🔍 一键诊断为什么没声音</button>
+    </div>
+    <div class="auto-box" style="margin-top:10px">
+      <p class="auto-label">诊断日志</p>
+      <p id="logBox" class="hint" style="white-space:pre-wrap;word-break:break-word;max-height:160px;overflow:auto">等待测试...</p>
+    </div>
+    <label class="label" for="rateInput">语速 <span class="value" id="rateVal">1.0x</span></label>
+    <input type="range" id="rateInput" min="0.7" max="1.3" step="0.05" value="1">
+    <label class="label" for="volumeInput">音量 <span class="value" id="volumeVal">100%</span></label>
+    <input type="range" id="volumeInput" min="0" max="1" step="0.1" value="1">
+    <div class="main-actions">
+      <button id="playBtn" class="btn primary" type="button">朗读</button>
+      <button id="pauseBtn" class="btn" type="button">暂停</button>
+      <button id="resumeBtn" class="btn" type="button">继续</button>
+      <button id="stopBtn" class="btn danger" type="button">停止</button>
+    </div>
+    <div class="download-box">
+      <button id="downloadBtn" class="btn primary download-btn" type="button">下载音频 (MP3)</button>
+      <p class="hint" id="downloadStatus">MP3 文件为中文发音，可离线播放与分享。</p>
+      <audio id="audioPreview" controls hidden></audio>
+    </div>
+    <p class="hint">提示：选中部分文本，再点 <b>朗读</b> / <b>下载音频</b>，只处理选中的部分。</p>
+    <details class="help"><summary>在 VS Code 中使用</summary><p>1. 在 VS Code 中打开 <b>xinwensheng</b> 文件夹。<br>2. 安装 <b>Live Server</b> 扩展。<br>3. 右键 <b>index.html</b> → <b>Open with Live Server</b> 或点击右下角 <b>Go Live</b>。</p></details>
+    <details class="help"><summary>如果没有声音怎么办？</summary><p>1. 请用 <b>Google Chrome / Microsoft Edge</b> 最新版打开。<br>2. 点 <b>测试注入语音</b>，如果能听到“你好”，说明正常。<br>3. 本版本语音已注入，不用安装中文语音 — 只要有网络就能朗读。<br>4. 不要在聊天预览里测试，要下载 ZIP 用 Chrome + Live Server。</p></details>
+  </aside>
+</main>
+<footer class="footer"><p>新闻声 XinWenSheng — 仅中文新闻朗读。语音自动使用中文（zh-CN）发音，语速自然，适合新闻播报。</p></footer>
+<script src="js/app.js"></script>
+</body>
+</html>
