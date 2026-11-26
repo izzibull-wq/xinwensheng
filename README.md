@@ -43,12 +43,6 @@
 - **零依赖** — 纯 HTML + CSS + JS
 
 ## 🎬 快速开始 Quick Start
-
-```bash
-git clone https://github.com/<username>/xinwensheng.git
-cd xinwensheng
-```
-
 1. 在 VS Code 中打开文件夹 `xinwensheng`
 2. 安装扩展 **Live Server**
 3. 右键 `index.html` → **Open with Live Server** / 点击右下角 **Go Live**
@@ -134,7 +128,5 @@ async function fetchTTSChunk(text) {
 ## 📄 License
 
 MIT License — 可自由使用、修改、商用，请保留原作者信息。
-
----
 
 **新闻声 XinWenSheng** — 让每一条中文新闻，都能被听见。
